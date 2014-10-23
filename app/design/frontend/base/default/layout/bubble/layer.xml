@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem" ifconfig="bubble_layer/general/enable_ajax">
+                <type>js</type><script>bubble/layer/native.history.js</script>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type><script>js/bubblelayer.js</script>
+            </action>
+            <action method="addItem" ifconfig="bubble_layer/general/enable_price_slider">
+                <type>skin_css</type><name>css/bubble/layer.css</name></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="bubble_layer/catalog_layer_js" name="bubble.layer.js" template="bubble/layer/catalog/layer/js.phtml" />
+        </reference>
+    </default>
+</layout>
