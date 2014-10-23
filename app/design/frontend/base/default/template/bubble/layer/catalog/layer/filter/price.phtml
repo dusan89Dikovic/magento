@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var $this Bubble_Layer_Block_Catalog_Layer_Filter_Price
+ */
+$_currency = $this->getCurrentCurrency();
+$_min = $this->getMin();
+$_max = $this->getMax();
+$_values = $this->getValues();
+$_priceFormat = $this->getJsPriceFormat();
+?>
+<div id="price-slider" class="slider">
+    <div class="handle min"></div>
+    <div class="span"></div>
+    <div class="handle max"></div>
+</div>
+
+<div class="price-range a-center">
+    <?php echo $_currency->formatPrecision($_values[0], 0) ?> - <?php echo $_currency->formatPrecision($_values[1], 0) ?>
+</div>
+
+<div class="price-limit">
+    <input id="price-min" type="hidden" value="<?php echo $_min ?>" />
+    <input id="price-max" type="hidden" value="<?php echo $_max ?>" />
+    <input id="price-value-min" type="hidden" value="<?php echo $_values[0] ?>" />
+    <input id="price-value-max" type="hidden" value="<?php echo $_values[1] ?>" />
+    <div class="max right"><?php echo $_currency->formatPrecision($_max, 0) ?></div>
+    <div class="min"><?php echo $_currency->formatPrecision($_min, 0) ?></div>
+</div>
