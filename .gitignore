@@ -1,1 +1,6 @@
 /media/*
+/.buildpath
+/.project
+/var/*
+/.settings
+/app/etc/local.xml
