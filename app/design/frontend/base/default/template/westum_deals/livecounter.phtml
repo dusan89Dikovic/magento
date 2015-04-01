@@ -1,0 +1,22 @@
+<?php if($this->getUseWrapper()): ?>
+    <div class = "magalter-deal-<?php echo $this->getDesignPackage(); ?>">
+<?php endif; ?>
+    <?php $uniqueId = md5(microtime(true)); ?>
+    <div class = "livecount-wrapper">
+            <div class = "days"><?php echo $this->__('Days'); ?></div>
+            <div class = "hours"><?php echo $this->__('Hours'); ?></div>
+            <div class =  "minutes"><?php echo $this->__('Minutes'); ?></div>
+            <div class = "seconds"><?php echo $this->__('Seconds'); ?></div>            
+        <div class = "time-to-event"><?php echo $this->getTimeToEventLabel(); ?></div>
+        <div id = "magalter-daydeal-<?php echo $uniqueId; ?>" class="livecounter"></div> 
+    </div>    
+<?php if($this->getUseWrapper()): ?>
+    </div>
+<?php endif; ?>
+ 
+
+<script type = "text/javascript">
+document.observe("dom:loaded", function() {
+   new magalterDayDealCounter( { timeLeft: <?php echo $this->getTimeToEvent(); ?> } ,"magalter-daydeal-<?php echo $uniqueId; ?>");
+});
+</script>

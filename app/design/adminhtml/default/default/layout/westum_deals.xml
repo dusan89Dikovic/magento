@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><stylesheet>westum_deals/styles.css</stylesheet></action>
+        </reference>
+    </default>
+    <westum_deals_admin_adminhtml_deals_edit>
+        <reference name="content">
+            <block type="westum_deals/adminhtml_deals_edit" name="westum_deals_edit"></block>
+        </reference>
+        <reference name="left">            
+            <block type="westum_deals/adminhtml_deals_edit_tabs" name="westum_deals_edit_tabs"></block>
+        </reference>
+         <reference name="menu">
+            <action method="setActive"><menupath>westum_deals</menupath></action>
+        </reference> 
+    </westum_deals_admin_adminhtml_deals_edit>    
+</layout>

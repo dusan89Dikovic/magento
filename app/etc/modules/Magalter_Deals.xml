@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Westum_Deals>
+            <active>false</active>
+            <codePool>local</codePool>
+        </Westum_Deals>
+    </modules>
+</config>

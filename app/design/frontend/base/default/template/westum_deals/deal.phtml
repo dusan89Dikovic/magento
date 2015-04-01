@@ -1,0 +1,47 @@
+<?php $rewriteId = mt_rand(); ?>
+<?php $_product = $this->getPreparedProduct(); ?> 
+<?php if(!$_product->getId()): return null; endif; ?>
+
+<div class = "magalter-deal-<?php echo $this->getDesignPackage(); ?>" id = "magalter-deal-<?php echo $this->getDesignPackage(); ?>-<?php echo $rewriteId; ?>">
+    
+<div class="time-to-event-header dark">
+    <?php echo $this->getTimeToEventLabel(); ?>
+</div>  
+    
+<h2 class="product-name light">
+    <a href="<?php echo $_product->getProductUrl() ?>">
+        <?php echo $this->getDayDealName(); ?>
+    </a>
+</h2>
+    
+<div class = "contents">
+    <table>        
+        <tr>
+            <td class ="Td-product-image light">
+                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($this->getImgResize(), $this->getImgResizeHeight()); ?>" width="<?php echo $this->getImgResize(); ?>" height="<?php echo $this->getImgResizeHeight(); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                </a>
+            </td>
+            <td class ="Td-product-price light">
+                <?php if($this->productPriceIsAllowed()): ?>
+                   <div class="price">    
+                     <?php echo $this->getCategoryHelper()->getPriceHtml($_product, true) ?>
+                   </div> 
+                <?php endif; ?>            
+             <?php if($this->addToCartIsAllowed()): ?>
+                <div class="add-to-cart">
+                    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getCategoryHelper()->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+                </div>
+            <?php endif; ?>
+            </td>
+        </tr>        
+    </table>   
+</div>
+      <div class="short-description light"><?php echo $this->getData('description'); ?></div>        
+     <?php if(!$this->dealIsInfinate() && $this->TimerIsAllowed()): ?>
+            <?php echo $this->getLiveCounter(); ?>
+     <?php endif; ?>
+<style>    
+    <?php echo $this->processAdditionalStyles($rewriteId); ?>    
+</style>
+</div>

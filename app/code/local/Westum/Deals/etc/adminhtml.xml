@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <westum_deals>
+            <title>Deal Of The Day</title>
+            <sort_order>10</sort_order>
+            <children>
+                <westum_deals>
+                    <title>Deals</title>
+                    <sort_order>5</sort_order>
+                    <action>westum_deals_admin/adminhtml_deals</action>
+                </westum_deals>                              
+                <configuration>
+                    <title>Configuration settings</title>
+                    <sort_order>10</sort_order>
+                    <action>adminhtml/system_config/edit/section/westum_deals</action>
+                </configuration>
+            </children>
+        </westum_deals>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <westum_deals>
+                        <title>Deal Of The Day</title>
+                        <sort_order>10</sort_order>
+                        <children>
+                            <westum_deals>
+                                <title>Deals</title>
+                                <sort_order>5</sort_order>
+                                <action>westum_deals_admin/adminhtml_deals</action>
+                            </westum_deals>                              
+                            <configuration>
+                                <title>Configuration settings</title>
+                                <sort_order>10</sort_order>
+                                <action>adminhtml/system_config/edit/section/westum_deals</action>
+                            </configuration>
+                        </children>
+                    </westum_deals>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <westum_deals>
+                                        <title>Magalter - Deals</title>
+                                    </westum_deals>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

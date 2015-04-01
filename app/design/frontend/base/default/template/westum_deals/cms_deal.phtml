@@ -1,0 +1,43 @@
+ <?php $_product = $this->getPreparedProduct(); ?>  
+
+<?php if(!$_product->getId()): return null; endif; ?>
+ 
+<?php $rewriteId = mt_rand(); ?>
+<div class = "magalter-deal-cms-<?php echo $this->getDesignPackage(); ?>" id = "magalter-deal-cms-<?php echo $this->getDesignPackage(); ?>-<?php echo $rewriteId; ?>">
+   
+<table>
+  <tr>
+   <td class = "magalter-td-image">
+       <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($this->getCmsResize(), $this->getCmsResizeHeight()); ?>" width="<?php echo $this->getCmsResize() ?>" height="<?php echo $this->getCmsResizeHeight() ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
+   </td>       
+   <td class = "magalter-td-content">
+    <h2 class="product-name">
+        <a href="<?php echo $_product->getProductUrl() ?>">
+            <?php echo $this->getDayDealName(); ?>
+        </a>
+    </h4>  
+    
+  <div class="price">    
+    <?php if($this->productPriceIsAllowed()): ?>
+        <?php echo $this->getCategoryHelper()->getPriceHtml($_product, true) ?>
+    <?php endif; ?>
+  </div>  
+     <?php if($this->addToCartIsAllowed()): ?>
+        <div class="add-to-cart">
+            <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getCategoryHelper()->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+        </div>
+        <?php endif; ?>    
+     
+     </td>    
+      <?php if(!$this->dealIsInfinate() && $this->TimerIsAllowed()): ?>
+     <td class = "magalter-td-counter">      
+            <?php echo $this->getLiveCounter(); ?>          
+     </td>  
+      <?php endif; ?>   
+   </tr>    
+</table>
+     <div class="short-description"><?php echo $this->getData('description'); ?></div>
+<style>    
+    <?php echo $this->processAdditionalStyles($rewriteId); ?>    
+</style>
+</div>

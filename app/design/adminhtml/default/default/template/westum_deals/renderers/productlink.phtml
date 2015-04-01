@@ -1,0 +1,6 @@
+<tr>
+    <td class="label"><?php echo $this->getElement()->getLabel(); ?></td>
+    <td class="value">
+        <a href = "<?php echo Mage::getUrl('adminhtml/catalog_product/edit',array('id'=>$this->getElement()->getProduct()->getId())) ?>" target="_blank"><?php echo $this->getElement()->getProduct()->getName(); ?></a>
+    </td>
+</tr>
