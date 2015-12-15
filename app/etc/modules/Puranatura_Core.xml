@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Puranatura_Core>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Puranatura_Core>
+    </modules>
+</config>
